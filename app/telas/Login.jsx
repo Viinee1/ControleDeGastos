@@ -31,7 +31,7 @@ const Login = () => {
             alert("Cheque seu e-mail!")
         }catch (error){
             console.log(error)
-            alert('A criação de conta falhou: ', error.message);
+            alert('O Login falhou: ', error.message);
         } finally {
             setLoading(false)
         }
@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <View style={styles.container}>
     <KeyboardAvoidingView>
-      <Text style={styles.titulo}>Gastos RN</Text>
+      <Text style={styles.titulo}>Log in</Text>
       <TextInput value={email} style={styles.input} placeholder="Email" autoCapitalize="none" onChangeText={(texto) => setEmail(texto)}></TextInput>
       <TextInput secureTextEntry={true} value={senha} style={styles.input} placeholder="Senha" autoCapitalize="none" onChangeText={(texto) => setSenha(texto)}></TextInput>
 

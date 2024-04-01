@@ -9,13 +9,13 @@ const Menu = () => {
   return (
     <View>
         <Pressable onPress={() => navegação.navigate('Tela de Gastos')} style={styles.botões}>
-            <Text>Tela de Gastos</Text>
+            Tela de Gastos
         </Pressable>
         <Pressable onPress={() => navegação.navigate('Estatísticas')} style={styles.botões}>
-            <Text>Ver Estatísticas</Text>
+            Ver Estatísticas
         </Pressable>
         <Pressable onPress={() => FIREBASE_AUTH.signOut()} style={styles.botões}>
-            <Text>Desconectar</Text>
+            Desconectar
         </Pressable>
     </View>
   );

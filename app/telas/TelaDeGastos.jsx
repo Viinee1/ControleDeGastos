@@ -183,6 +183,13 @@ const TelaDeGastos = () => {
         <Pressable style={styles.botãogastos} onPress={() => adicionarCategoria(novaCategoriaInput)}>
           <Text>Adicionar Nova Categoria</Text>
         </Pressable>
+        <Text style={styles.textoImportante}>Filtrar</Text>
+            <TextInput
+              placeholder="Buscar gastos por descrição, valor, categoria ou data"
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              style={styles.inputFiltro}
+            />
         <View>
           <Text style={styles.textoImportante}>Lista de Gastos:</Text>
           {filterExpenses().map((gasto, index) => (
@@ -223,17 +230,10 @@ const TelaDeGastos = () => {
                 onLongPress={() => removerGasto(gasto.id)}
                 style={styles.botãoExcluirGastos}
               >
-                <Text>Pressione para remover gasto</Text>
+                <Text style={styles.textoExcluir}>Pressione para remover gasto</Text>
               </Pressable>
             </View>
           ))}
-            <Text style={styles.textoImportante}>Filtrar</Text>
-            <TextInput
-              placeholder="Buscar gastos por descrição, valor, categoria ou data"
-              value={searchQuery}
-              onChangeText={setSearchQuery}
-              style={styles.inputFiltro}
-            />
         </View>
       </View>
     </ScrollView>
