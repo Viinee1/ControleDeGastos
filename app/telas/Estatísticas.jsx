@@ -95,6 +95,7 @@ const Estatísticas = () => {
         }}
       />
       {/* Adicione o Picker com os anos disponíveis */}
+      <Text>Selecione o ano:</Text>
       <Picker
         selectedValue={anoSelecionado}
         style={{ height: 50, width: 100 }}

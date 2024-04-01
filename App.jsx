@@ -3,12 +3,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./app/telas/Login";
 import Menu from "./app/telas/Menu";
 import TelaDeGastos from './app/telas/TelaDeGastos';
+import Estatísticas from './app/telas/Estatísticas';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH } from './FirebaseConfig';
-import Estatísticas from './app/telas/Estatísticas';
 
 
+//pilhas de navegação
 const Stack = createNativeStackNavigator();
 const StackLogado = createNativeStackNavigator();
 

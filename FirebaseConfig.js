@@ -11,7 +11,9 @@ const firebaseConfig = {
   appId: "1:722444328197:web:00b2a6721e1722b0e12b6c"
 };
 
-// Initialize Firebase
+// Inicialização do Firebase com a configuração definida acima
 export const FIREBASE_APP = initializeApp(firebaseConfig);
+// Obtenção da instância de autenticação do Firebase
 export const FIREBASE_AUTH = getAuth(FIREBASE_APP);
+// Obtenção da instância do banco de dados em tempo real do Firebase
 export const REALTIME_DB = getDatabase(FIREBASE_APP);

@@ -41,6 +41,7 @@ const Login = () => {
   return (
     <View style={styles.container}>
     <KeyboardAvoidingView>
+      <Text style={styles.titulo}>Gastos RN</Text>
       <TextInput value={email} style={styles.input} placeholder="Email" autoCapitalize="none" onChangeText={(texto) => setEmail(texto)}></TextInput>
       <TextInput secureTextEntry={true} value={senha} style={styles.input} placeholder="Senha" autoCapitalize="none" onChangeText={(texto) => setSenha(texto)}></TextInput>
 

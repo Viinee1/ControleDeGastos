@@ -135,7 +135,7 @@ const TelaDeGastos = () => {
   return (
     <ScrollView>
       <View>
-        <Text>TelaDeGastos</Text>
+        <Text style={styles.textoImportante}>Adicione um gasto aqui</Text>
         <TextInput
           placeholder="Descrição"
           value={descricao}
@@ -173,23 +173,18 @@ const TelaDeGastos = () => {
         <Pressable style={styles.botãogastos} onPress={adicionarGasto}>
           <Text>Adicionar Gasto</Text>
         </Pressable>
+        <Text style={styles.textoImportante}>Adicionar Categoria</Text>
         <TextInput
           placeholder="Nova Categoria"
           value={novaCategoriaInput}
           onChangeText={setNovaCategoriaInput}
           style={styles.inputgastos}
         />
-        <Pressable onPress={() => adicionarCategoria(novaCategoriaInput)}>
-          <Text style={styles.botãogastos}>Adicionar Nova Categoria</Text>
+        <Pressable style={styles.botãogastos} onPress={() => adicionarCategoria(novaCategoriaInput)}>
+          <Text>Adicionar Nova Categoria</Text>
         </Pressable>
-        <TextInput
-          placeholder="Buscar gastos por descrição, valor, categoria ou data"
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-          style={styles.inputgastos}
-        />
         <View>
-          <Text>Lista de Gastos:</Text>
+          <Text style={styles.textoImportante}>Lista de Gastos:</Text>
           {filterExpenses().map((gasto, index) => (
             <View key={index}>
               <TextInput
@@ -226,12 +221,19 @@ const TelaDeGastos = () => {
               />
               <Pressable
                 onLongPress={() => removerGasto(gasto.id)}
-                style={styles.botãogastos}
+                style={styles.botãoExcluirGastos}
               >
                 <Text>Pressione para remover gasto</Text>
               </Pressable>
             </View>
           ))}
+            <Text style={styles.textoImportante}>Filtrar</Text>
+            <TextInput
+              placeholder="Buscar gastos por descrição, valor, categoria ou data"
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              style={styles.inputFiltro}
+            />
         </View>
       </View>
     </ScrollView>
