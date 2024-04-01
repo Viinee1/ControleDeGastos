@@ -6,6 +6,7 @@ import TelaDeGastos from './app/telas/TelaDeGastos';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH } from './FirebaseConfig';
+import Estatísticas from './app/telas/Estatísticas';
 
 
 const Stack = createNativeStackNavigator();
@@ -16,6 +17,7 @@ function LogadoLayout() {
     <StackLogado.Navigator>
       <StackLogado.Screen name='Menu' component={Menu}/>
       <StackLogado.Screen name='Tela de Gastos' component={TelaDeGastos}/>
+      <StackLogado.Screen name='Estatísticas' component={Estatísticas}/>
     </StackLogado.Navigator>
   );
 }
