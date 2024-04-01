@@ -10,6 +10,8 @@ const Estatísticas = () => {
   const [gastos, setGastos] = useState([]);
   const [anoSelecionado, setAnoSelecionado] = useState('');
   const [anosDisponiveis, setAnosDisponiveis] = useState([]);
+  const [somaGastosAno, setSomaGastosAno] = useState(0);
+  const [mediaGastosAno, setMediaGastosAno] = useState(0);
 
   useEffect(() => {
     const user = FIREBASE_AUTH.currentUser;
@@ -40,6 +42,19 @@ const Estatísticas = () => {
       });
     }
   }, []);
+
+  useEffect(() => {
+    // Calcular soma dos gastos e média dos gastos para o ano selecionado
+    let soma = 0;
+    gastos.forEach(gasto => {
+      const [day, month, year] = gasto.data.split('/'); // Separar dia, mês e ano
+      if (parseInt(year, 10) === parseInt(anoSelecionado, 10)) { // Filtrar gastos pelo ano selecionado
+        soma += gasto.valor;
+      }
+    });
+    setSomaGastosAno(soma);
+    setMediaGastosAno(soma / 12); // Média dos gastos considerando 12 meses
+  }, [anoSelecionado, gastos]);
 
   const calcularGastosPorMês = () => {
     const gastosPorMês = Array(12).fill(0);
@@ -106,6 +121,9 @@ const Estatísticas = () => {
           <Picker.Item key={ano} label={ano.toString()} value={ano.toString()} />
         ))}
       </Picker>
+      {/* Exibir soma dos gastos do ano e média dos gastos do ano */}
+      <Text>Soma dos gastos do ano: R$ {somaGastosAno.toFixed(2)}</Text>
+      <Text>Média dos gastos do ano: R$ {mediaGastosAno.toFixed(2)}</Text>
     </View>
   );
 };
