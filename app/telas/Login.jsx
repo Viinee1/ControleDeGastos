@@ -31,7 +31,7 @@ const Login = () => {
             alert("Cheque seu e-mail!")
         }catch (error){
             console.log(error)
-            alert('O Login falhou: ', error.message);
+            alert('A criação de conta falhou: ', error.message);
         } finally {
             setLoading(false)
         }
